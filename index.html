@@ -26,7 +26,8 @@
     }).addTo(map);
 
   // load GeoJSON from an external file
-  $.getJSON("rodents.geojson",function(data){ var ratIcon = L.icon({
+ $.getJSON("rodents.geojson",function(data){
+  var ratIcon = L.icon({
     iconUrl: 'rat.png',
     iconSize: [60,50]
   });
