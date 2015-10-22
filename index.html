@@ -25,7 +25,7 @@
       minZoom: 9
     }).addTo(map);
     
-  $.getJSON("neighborhoods.geojson",function(hoodData){
+  $.getJSON("neighborhoods.geojson.json",function(hoodData){
     L.geoJson( hoodData ).addTo(map);
   });
  
