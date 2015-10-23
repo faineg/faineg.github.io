@@ -6,6 +6,7 @@
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   <script src="leaflet.markercluster.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
   <style>
     #map{ height: 100% }
   </style>
@@ -18,6 +19,13 @@
  
   // initialize the map
   var map = L.map('map').setView([42.35, -71.08], 13);
+  
+  var layer = new L.StamenTileLayer("toner");
+var map = new L.Map("element_id", {
+    center: new L.LatLng(37.7, -122.4),
+    zoom: 12
+});
+map.addLayer(layer);
  
   // load a tile layer
   L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
