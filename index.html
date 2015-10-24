@@ -28,9 +28,16 @@ https://api.mapbox.com/v4/{mapid}/{z}/{x}/{y}.{format}?access_token=<your access
 }).addTo(map);
 
   // load GeoJSON from an external file
-  $.getJSON("faineresumemap.geojson",function(data){
+  $.getJSON("faineresumemap.geojson",function(data){ var flagIcon = L.icon({
+    iconUrl: 'flag.png',
+    iconSize: [60,50]
+  });
     // add GeoJSON layer to the map once the file is loaded
-    L.geoJson(data).addTo(map);
+    L.geoJson(data,{
+    pointToLayer: function(feature,latlng){
+	  return L.marker(latlng,{icon: flagIcon});
+    }
+  }).addTo(map);
   });
 
   </script>
