@@ -3,6 +3,7 @@
   <title>A Leaflet map!</title>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="jquery-2.1.1.min.js"></script>
   <style>
     #map{ width: 900px; height: 500px; }
   </style>
@@ -25,6 +26,12 @@ https://api.mapbox.com/v4/{mapid}/{z}/{x}/{y}.{format}?access_token=<your access
     id: 'mapbox.streets-satellite',
     accessToken: 'pk.eyJ1IjoiZmFpbmVnIiwiYSI6ImNpZzVqb2k0ajQ0dTd1cG0zbGYxbmQ0bDcifQ.ZZVpGrVGLNiGTqMy-atG5Q'
 }).addTo(map);
+
+  // load GeoJSON from an external file
+  $.getJSON("faineresumemap.geojson",function(data){
+    // add GeoJSON layer to the map once the file is loaded
+    L.geoJson(data).addTo(map);
+  });
 
   </script>
 </body>
