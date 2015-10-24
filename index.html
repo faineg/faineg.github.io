@@ -35,7 +35,9 @@ https://api.mapbox.com/v4/{mapid}/{z}/{x}/{y}.{format}?access_token=<your access
     // add GeoJSON layer to the map once the file is loaded
     L.geoJson(data,{
     pointToLayer: function(feature,latlng){
-	  return L.marker(latlng,{icon: flagIcon});
+    	var marker = L.marker(latlng,{icon: flagIcon});
+  marker.bindPopup(feature.properties.popupContent);
+  return marker;
     }
   }).addTo(map);
   });
