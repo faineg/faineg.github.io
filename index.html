@@ -26,7 +26,7 @@ function addDataToMap(data, map) {
     var dataLayer = L.geoJson(data, {
         onEachFeature: function(feature, layer) {
             var popupText = "Description: " + feature.properties.popupContent
-                + "<br>Location: " + feature.properties.place
+                + "<br>Type: " + feature.properties.kind
                 + "<br><a href='" + feature.properties.url + "'>More info</a>";
             layer.bindPopup(popupText); }
         });
