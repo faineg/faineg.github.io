@@ -18,17 +18,6 @@
   // initialize the map
   var map = L.map('map').setView([11.56, 104.93], 13);
   
-  function addDataToMap(data, map) {
-    var dataLayer = L.geoJson(data, {
-        onEachFeature: function(feature, layer) {
-            var popupText = "Magnitude: " + feature.properties.mag
-                + "<br>Location: " + feature.properties.place
-                + "<br><a href='" + feature.properties.url + "'>More info</a>";
-            layer.bindPopup(popupText); }
-        });
-    dataLayer.addTo(map);
-}
-  
 https://api.mapbox.com/v4/{mapid}/{z}/{x}/{y}.{format}?access_token=<your access token>
   // load a tile layer
  L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.streets-satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZmFpbmVnIiwiYSI6ImNpZzVqb2k0ajQ0dTd1cG0zbGYxbmQ0bDcifQ.ZZVpGrVGLNiGTqMy-atG5Q', {
@@ -42,6 +31,18 @@ https://api.mapbox.com/v4/{mapid}/{z}/{x}/{y}.{format}?access_token=<your access
   $.getJSON("faineresumemap.geojson",function(data){ var flagIcon = L.icon({
     iconUrl: 'flag.png',
     iconSize: [60,50]
+    
+      
+  function addDataToMap(data, map) {
+    var dataLayer = L.geoJson(data, {
+        onEachFeature: function(feature, layer) {
+            var popupText = "Magnitude: " + feature.properties.mag
+                + "<br>Location: " + feature.properties.place
+                + "<br><a href='" + feature.properties.url + "'>More info</a>";
+            layer.bindPopup(popupText); }
+        });
+    dataLayer.addTo(map);
+}
     
    var addDataToMap(data, map);
   });
