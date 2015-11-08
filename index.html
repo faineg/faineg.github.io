@@ -25,7 +25,7 @@ https://api.mapbox.com/v4/{mapid}/{z}/{x}/{y}.{format}?access_token=<your access
 function addDataToMap(data, map) {
     var dataLayer = L.geoJson(data, {
         onEachFeature: function(feature, layer) {
-            var popupText = "Magnitude: " + feature.properties.mag
+            var popupText = "Description: " + feature.properties.popupContent
                 + "<br>Location: " + feature.properties.place
                 + "<br><a href='" + feature.properties.url + "'>More info</a>";
             layer.bindPopup(popupText); }
